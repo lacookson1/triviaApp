@@ -53,13 +53,29 @@ class ViewController: UIViewController {
         var x = 1
         
         for i in 1...3 {
-            button = view.viewWithTag(i) as !UIButton    }
+            button = view.viewWithTag(i) as !UIButton
+            if
+                (i == Int(rightAnswerPlacement)){
+                button.setTitle(answers[currentQuestion][0], for: .normal)
+            }
+            else {
+                button.setTitle(answers[currentQuestion][x], for: .normal)
+                x = 2
+            }
+        }
+        currentQuestion += 1
+    }
+    func endQuiz () {
+        if points == 30
+        performSegue(withIdentifier: "pass", sender: self)
+    }
+    else {
+    performSegue(withIdentifer: "fail", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
-}
 
 }
